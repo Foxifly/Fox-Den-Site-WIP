@@ -1,0 +1,509 @@
+$oswald: 'Oswald', sans-serif;
+$PT: 'PT Sans Narrow', sans-serif;
+$Anton: 'Anton', sans-serif;
+$shadow: 2px 2px black;
+
+@mixin flexCenter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+@mixin bgProperties {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@mixin buttonStyle {
+  font: 20px bold;
+  font-family: $oswald;
+  text-align: center;
+  border: 2px solid white;
+  border-radius: 10px;
+  width: 75%;
+  padding: 10px 20px;
+  background-color: rgba(255,255,255,0.45);
+  color: black;
+  text-decoration: none;
+  transition: ease-in-out 0.3s;
+}
+@mixin inputFields {
+  resize: none;
+  font-size: 16px;
+  font-family: $oswald;
+  color: #444444;
+  padding: 5px;
+  border: 2px solid #A6A6A5;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+body,
+html {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+nav {
+  @include flexCenter;
+  flex-direction: row;
+  z-index: 2;
+  position: fixed;
+  width: 100%;
+  height: 25px;
+  background-color: black;
+  color: white;
+  padding: 20px;
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+p {
+  font-family: $PT;
+  font-size: 17px;
+}
+
+h1 {
+  font-family: $Anton;
+  font-size: 100px;
+  text-shadow: $shadow;
+}
+
+h2 {
+  font-family: $oswald;
+  text-align: center;
+  font-size: 32px;
+}
+
+h3 {
+  text-align: center;
+}
+
+.heading {
+  h2 {
+    text-shadow: $shadow;
+  }
+
+  h3 {
+    text-shadow: $shadow;
+  }
+  position: absolute;
+  z-index: 1;
+  text-align: center;
+  color: white;
+  width: 100%;
+  top: 15%;
+}
+
+.main-image {
+  background-image: url("/resources/img/fox-den-background.jpg");
+  height: 100%;
+  @include bgProperties;
+
+  &:after {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.3);
+  }
+}
+
+.about {
+  margin: 0 auto;
+  padding: 50px 0;
+  width: 100%;
+  text-align: center;
+  background-color: white;
+  color: black;
+
+  .about-image {
+    width: 75%;
+    padding-top: 20px;
+  }
+
+  .about-container {
+    @include flexCenter;
+    width: 100%;
+  }
+
+  p {
+    text-align: justify;
+  }
+
+  .about-content-image {
+    padding-top: 15px;
+    width: 20%;
+  }
+
+  .about-content {
+    width: 50%;
+    padding-top: 5px;
+  }
+}
+
+.staff {
+  h3 {
+    font-family: $oswald;
+  }
+  width: 100%;
+  background-image: url("/resources/img/winter-image.jpg");
+  @include bgProperties;
+  background-attachment: fixed;
+  z-index: -2;
+  color: white;
+
+  .staff-outer-container {
+    padding: 50px 0;
+    background-color: rgba(0,0,0, 0.6);
+  }
+
+  .staff-container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(4, 20%);
+  }
+
+  .staff-content {
+    text-align: center;
+  }
+
+  .staff-image {
+    width: 100%;
+    border-radius: 50%;
+    width: 220px;
+    height: 220px;
+    transition: ease 0.4s;
+
+    &:hover {
+      filter: grayscale(100%);
+      cursor: pointer;
+    }
+  }
+
+  .link-container {
+    width: 100%;
+    text-align: center;
+    padding: 50px 0 20px;
+
+    a {
+      @include buttonStyle;
+
+      &:hover {
+        background-color: rgba(255,255,255,0.6);
+      }
+    }
+  }
+}
+
+.ourfoxden {
+  padding: 50px 0;
+  background-color: white;
+  margin: 0;
+  color: black;
+
+  h2 {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  p {
+    text-align: justify;
+  }
+
+  img {
+    padding-top: 10px;
+  }
+
+  .ourfoxden-container {
+    width: 100%;
+    display: grid;
+    grid-gap: 50px;
+    justify-content: center;
+    grid-template-columns: repeat(2, 40%);
+  }
+
+  .ourfoxden-content {
+    @include flexCenter;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .ourfoxden-content-paragraph {
+    width: 70%;
+  }
+
+  .ourfoxden-content-image {
+    width: 30%;
+  }
+}
+
+
+.modal {
+  @include flexCenter;
+  display: none;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 3;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+
+  .modal-container {
+    @include flexCenter;
+      align-items: center;
+        width: 100%;
+  }
+
+
+  .modal-image {
+
+    width: 30%;
+  }
+  .modal-text {
+    width: 60%;
+    padding-right:3%;
+    text-align: justify;
+  }
+
+.modal-content {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 10px;
+  width: 50%;
+  .staff-image {
+    border-radius: 50%;
+    width: 175px;
+    height: 175px;
+  }
+
+  .close {
+    cursor: pointer;
+    float: right;
+  }
+
+}
+
+}
+.stats {
+  h2 {
+    text-align: center;
+    font-family: $PT;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    margin: 0;
+  }
+
+  h3 {
+    font-size: 60px;
+    font-family: $oswald;
+    margin: 0;
+    line-height: 1;
+  }
+  background-color: black;
+  color: white;
+  padding: 50px 0;
+
+  .stats-container {
+    display: grid;
+    grid-template-columns: repeat(4, 20%);
+    justify-content: center;
+  }
+}
+
+.logo,
+.nav-list,
+.sm-nav-list {
+  @include flexCenter;
+  font-family: "Dosis", sans-serif;
+  flex-direction: row;
+  text-align: center;
+}
+
+.sub-menu {
+  margin-top: 25px;
+  display: none;
+  position: absolute;
+  background-color: black;
+  border-radius: 0px 0px 5px 5px;
+  list-style: none;
+
+  .nav-subitem {
+    padding: 10px;
+    transition: ease 0.3s;
+    &:hover {
+      border-radius: 5px;
+      background-color: rgba(255,255,255,0.2)
+    }
+
+  }
+}
+
+.show {
+  display: block;
+
+
+}
+
+.logo,
+.sm-nav-list  {
+  width: 10%;
+}
+.nav-list {
+  width: 60%;
+}
+
+.logo,
+.nav-item,
+.sm-nav-item {
+  list-style: none;
+}
+
+.nav-item {
+  color: grey;
+}
+
+.nav-item-link {
+  text-decoration: none;
+  color: gray;
+  padding: 20px;
+}
+
+.nav-item-link:hover > .nav-item {
+  border-bottom: 1px solid white;
+}
+
+.selected {
+  color: white;
+}
+
+.blurb {
+  padding: 50px 0;
+
+  .blurb-container {
+    margin: 0 auto;
+    width: 45%;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  form {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-areas: "name message message message" "email message message message" "subject message message message" ". . . submit";
+
+    .input {
+      @include inputFields;
+      padding: 5px;
+      width: 90%;
+      height: 20px;
+      margin: 5px;
+
+      &:focus {
+        outline-color: #a0a0a0;
+      }
+    }
+
+    .big-input {
+      @include inputFields;
+      width: 98%;
+      height: 84%;
+      margin-top: 5px;
+
+      &:focus {
+        outline-color: #a0a0a0;
+      }
+    }
+
+    .button {
+      @include buttonStyle;
+      background-color: rgba(0,0,0,0.8);
+      border-color: black;
+      color: white;
+
+      &:hover {
+        background-color: rgba(0,0,0,1);
+        cursor: pointer;
+      }
+    }
+
+    label {
+      font-family: $PT;
+      font-weight: bold;
+      margin: 0 0 0 5px;
+      font-size: 20px;
+    }
+
+    #name {
+      grid-area: name;
+    }
+
+    #email {
+      grid-area: email;
+    }
+
+    #subject {
+      grid-area: subject;
+    }
+
+    #message {
+      grid-area: message;
+    }
+
+    #submit {
+      grid-area: submit;
+      justify-self: end;
+    }
+  }
+}
+
+footer {
+  .footer-container {
+    width: 40%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+  }
+  background-color: #999999;
+
+  .footer-container {
+    padding: 50px 0;
+  }
+
+  .footer-item {
+  text-align: center;
+  margin: 5px 0px 5px 0px;
+  }
+  a {
+    font-family: $oswald;
+    font-weight: bold;
+    margin: 0px;
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+      color: rgba(0,0,0,0.8)
+    }
+  }
+}

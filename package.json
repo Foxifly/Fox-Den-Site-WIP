@@ -1,0 +1,19 @@
+{
+  "name": "fd-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.24.7",
+    "gulp-eslint": "^5.0.0",
+    "gulp-sass": "^4.0.1"
+  },
+  "devDependencies": {
+    "gulp-autoprefixer": "^6.0.0"
+  }
+}
